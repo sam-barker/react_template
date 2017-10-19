@@ -6,8 +6,10 @@
   "author": "Samuel Barker (spbarker1994@gmail.com)",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --watch",
-    "dev": "webpack-dev-server --hot",
+    "build:dev": "NODE_ENV=development webpack --watch",
+    "build:production": "NODE_ENV=production webpack --watch",
+    "dev": "NODE_ENV=development webpack-dev-server --hot",
+    "production": "NODE_ENV=production webpack-dev-server --hot",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"

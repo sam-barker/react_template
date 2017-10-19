@@ -7,6 +7,9 @@ const paths = {
   SRC: path.resolve(__dirname, 'src')
 }
 
+const environment = process.env.NODE_ENV || 'production'
+console.log('Webpack environment :: ', environment)
+
 module.exports = {
   entry: path.join(paths.SRC, 'index.js'),
 
@@ -16,9 +19,8 @@ module.exports = {
   },
 
   plugins: [
-    // Reduce bundle size
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env.NODE_ENV': `"${environment}"`
     }),
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html')
